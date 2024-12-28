@@ -34,14 +34,14 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 class CNN(nn.Module):
     def __init__(self, in_channels=3, out_1=32, out_2=32, ks=3, img_size=32):
         super(CNN, self).__init__()
-        self.cnn1 = nn.Conv2d(in_channels=in_channels,
+        self.conv1 = nn.Conv2d(in_channels=in_channels,
                               out_channels=out_1,
                               kernel_size=ks,
                               padding=1)
         self.conv1_bn = nn.BatchNorm2d(out_1)
         self.maxpool1 = nn.MaxPool2d(kernel_size=2)
 
-        self.cnn2 = nn.Conv2d(in_channels=out_1,
+        self.conv2 = nn.Conv2d(in_channels=out_1,
                               out_channels=out_2,
                               kernel_size=ks,
                               padding=1)
